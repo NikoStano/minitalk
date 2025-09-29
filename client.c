@@ -6,13 +6,13 @@
 /*   By: nistanoj <nistanoj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 01:56:19 by nistanoj          #+#    #+#             */
-/*   Updated: 2025/09/29 21:18:06 by nistanoj         ###   ########.fr       */
+/*   Updated: 2025/09/30 01:37:59 by nistanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minitalk.h"
 
-static volatile sig_atomic_t	g_ack;
+volatile sig_atomic_t	g_ack;
 
 static void	ack_handler(int signal)
 {
@@ -22,7 +22,7 @@ static void	ack_handler(int signal)
 
 static void	send_char(char c, int pid)
 {
-	int				i;
+	int	i;
 
 	i = 7;
 	while (i >= 0)
@@ -38,10 +38,18 @@ static void	send_char(char c, int pid)
 	}
 }
 
+static void	check_str(char *str, int pid)
+{
+	while (*str)
+		send_char(*str++, pid);
+	send_char('\n', pid);
+	send_char('\0', pid);
+}
+
 static void	handler(int signal)
 {
 	(void)signal;
-	ft_putstr("\033[1;32mLe server a recu le message !\033[0m\n");
+	write(1, "\033[1;32mLe server a recu le message !\n\033[0m", 42);
 	exit(0);
 }
 
@@ -50,20 +58,13 @@ int	main(int ac, char **av)
 	pid_t	pid;
 	char	*str;
 
-	if (ac == 3)
-	{
-		pid = atoi(av[1]);
-		if (pid <= 0)
-			return (ft_putstr("Invalid PID\n"), 1);
-		str = av[2];
-		signal(SIGUSR1, handler);
-		signal(SIGUSR2, ack_handler);
-		while (*str)
-			send_char(*str++, pid);
-		send_char('\n', pid);
-		send_char('\0', pid);
-	}
-	else
-		return (ft_putstr("Usage: ./client <PID> <message>\n"), 1);
-	return (0);
+	if (ac != 3)
+		return (write(1, "Usage: ./client <PID> <message>\n", 32), 1);
+	pid = atoi(av[1]);
+	if (pid <= 0 || !pid)
+		return (write(1, "Invalid PID\n", 12), 1);
+	str = av[2];
+	signal(SIGUSR1, handler);
+	signal(SIGUSR2, ack_handler);
+	check_str(str, pid);
 }

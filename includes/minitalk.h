@@ -6,7 +6,7 @@
 /*   By: nistanoj <nistanoj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 04:55:11 by nistanoj          #+#    #+#             */
-/*   Updated: 2025/09/29 20:28:23 by nistanoj         ###   ########.fr       */
+/*   Updated: 2025/09/30 01:05:54 by nistanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <stdlib.h>
 
 void	ft_putchar(char c);
-int		ft_strlen(char *s);
-void	ft_putstr(char *s);
-char	*ft_itoa(int n);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+void	ft_putnbr(int nb);
 
 #endif
