@@ -11,5 +11,5 @@
 - [x] Utiliser uniquement les signaux `UNIX`  `SIGUSR1` et `SIGUSR2`
 
 # BONUS
-- [ ] `SERVER` confirme la reception avec un signal au `CLIENT` 
-- [ ] Gestion des caractere `UNICODE`
+- [x] `SERVER` confirme la reception avec un signal au `CLIENT` 
+- [~] Gestion des caractere `UNICODE`
