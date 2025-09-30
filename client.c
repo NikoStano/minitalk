@@ -6,7 +6,7 @@
 /*   By: nistanoj <nistanoj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 01:56:19 by nistanoj          #+#    #+#             */
-/*   Updated: 2025/09/30 01:37:59 by nistanoj         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:18:28 by nistanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,13 @@ static void	check_str(char *str, int pid)
 {
 	while (*str)
 		send_char(*str++, pid);
-	send_char('\n', pid);
 	send_char('\0', pid);
 }
 
 static void	handler(int signal)
 {
 	(void)signal;
-	write(1, "\033[1;32mLe server a recu le message !\n\033[0m", 42);
+	ft_putstr("\033[1;32mLe server a recu le message !\n\033[0m");
 	exit(0);
 }
 
@@ -59,10 +58,10 @@ int	main(int ac, char **av)
 	char	*str;
 
 	if (ac != 3)
-		return (write(1, "Usage: ./client <PID> <message>\n", 32), 1);
+		return (ft_putstr("Usage: ./client <PID> <message>\n"), 1);
 	pid = atoi(av[1]);
 	if (pid <= 0 || !pid)
-		return (write(1, "Invalid PID\n", 12), 1);
+		return (ft_putstr("Invalid PID\n"), 1);
 	str = av[2];
 	signal(SIGUSR1, handler);
 	signal(SIGUSR2, ack_handler);
