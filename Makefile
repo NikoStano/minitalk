@@ -6,11 +6,11 @@
 #    By: nistanoj <nistanoj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 01:12:25 by nistanoj          #+#    #+#              #
-#    Updated: 2025/09/30 01:41:59 by nistanoj         ###   ########.fr        #
+#    Updated: 2025/09/30 14:41:57 by nistanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SERVER		=	serveur
+SERVER		=	server
 CLIENT		=	client
 
 INCLUDE		=	includes
