@@ -6,7 +6,7 @@
 /*   By: nistanoj <nistanoj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 01:56:19 by nistanoj          #+#    #+#             */
-/*   Updated: 2025/09/30 18:18:28 by nistanoj         ###   ########.fr       */
+/*   Updated: 2025/10/04 00:48:46 by nistanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	send_char(char c, int pid)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		if (!g_ack)
-			pause();
+		while (!g_ack)
+			usleep(100);
 		i--;
 	}
 }
@@ -41,7 +41,10 @@ static void	send_char(char c, int pid)
 static void	check_str(char *str, int pid)
 {
 	while (*str)
+	{
 		send_char(*str++, pid);
+		usleep(100);
+	}
 	send_char('\0', pid);
 }
 
