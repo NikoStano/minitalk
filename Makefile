@@ -68,4 +68,13 @@ re:				fclean all
 
 bonus:			all
 
+test: $(NAME) norminette
+	@echo "$(YELLOW)╔════════════════════════════════════╗$(RESET)"
+	@echo "$(YELLOW)║     Launching test on MINITALK     ║$(RESET)"
+	@echo "$(YELLOW)╚════════════════════════════════════╝$(RESET)"
+	@echo "$(CYAN)→ Cloning minitalk...$(RESET)"
+	@git clone -q https://github.com/NikoStano/minitalk_tester.git
+	@cd minitalk_tester
+	@$(MAKE) -s
+
 .PHONY:			all norminette clean fclean bonus
