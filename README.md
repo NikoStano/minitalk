@@ -13,3 +13,9 @@
 # BONUS
 - [x] `SERVER` confirme la reception avec un signal au `CLIENT` 
 - [x] Gestion des caractere `UNICODE`
+
+
+### Tester 👇
+```bash
+make test
+```
