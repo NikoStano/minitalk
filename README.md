@@ -351,19 +351,4 @@ Ce projet permet de maîtriser :
 
 ---
 
-## 🌟 Remerciements
-
-- **[Testeur minitalk](https://github.com/NikoStano/minitalk-tester)** - Tests automatiques
-- **École 42** - Pour ce projet pédagogique
-
----
-
-## ⚠️ Note importante
-
-Ce projet est réalisé dans le cadre du cursus de l'école 42. Il est à but **éducatif** et présente des limitations volontaires (vitesse, sécurité) pour se concentrer sur l'apprentissage des signaux UNIX.
-
----
-
-**Bon courage pour votre soutenance ! 🚀**
-
 _N'oubliez pas de consulter le [Wiki](../../wiki) pour toute question !_
