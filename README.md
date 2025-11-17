@@ -1,4 +1,4 @@
-# 📡 Minitalk
+# 📡 Minitalk [![nistanoj's 42 minitalk Score](https://badge.nimon.fr/api/v2/cmgjygisn1482501pa9h6l9sg4/project/4399901)](https://github.com/Nimon77/badge42)
 
 ![42 Project](https://img.shields.io/badge/42-Project-blue?style=for-the-badge)
 ![Language](https://img.shields.io/badge/Language-C-orange?style=for-the-badge)
