@@ -8,35 +8,49 @@
 
 ---
 
-## Documentation complète
+## Structure du projet
 
-### **[Accéder au Wiki](../../wiki)**
-
-Le Wiki contient toute la documentation détaillée du projet :
-
-| Section | Description |
-|---------|-------------|
-| [**Home**](../../wiki/Home) | Vue d'ensemble et navigation |
-| [**Installation & Utilisation**](../../wiki/Installation-&-Utilisation) | Guide complet pour compiler et utiliser |
-| [**Concepts Clés**](../../wiki/Concepts-Clés) | Signaux UNIX, PID, communication bit par bit |
-| [**Architecture**](../../wiki/Architecture) | Structure du projet et flux de communication |
-| [**Détails Techniques**](../../wiki/Détails-Techniques) | Analyse approfondie du code |
-| [**FAQ**](../../wiki/FAQ) | Réponses aux questions fréquentes |
-| [**Ressources**](../../wiki/Ressources) | Commandes, outils, exemples avancés |
+```
+minitalk/
+│
+├──  server.c
+├──  client.c
+├──  utils.c
+├──  includes/
+│   └──  minitalk.h
+└──  Makefile
+```
 
 ---
 
-## Quick Start
+## Commandes Make
 
-### Compilation
+| Commande | Description |
+|----------|-------------|
+| `make` | Compile `server` et `client` |
+| `make clean` | Supprime les fichiers objets (`.o`) |
+| `make fclean` | Supprime tout (objets + exécutables) |
+| `make re` | Nettoie et recompile tout |
+| `make bonus` | Compile avec les bonus (identique à `make`) |
+| `make test` | **Lance le testeur automatique**  |
+| `make norminette` | Vérifie que le code respecte la norme 42 |
 
-```bash
-make
-```
+---
 
-Génère deux exécutables : `server` et `client`
+## Concepts appris
 
-### Utilisation basique
+Ce projet permet de maîtriser :
+-  Les signaux UNIX (`SIGUSR1`, `SIGUSR2`)
+-  La communication inter-processus (IPC)
+-  La manipulation des bits en C
+-  Les variables `volatile` et `sig_atomic_t`
+-  L'utilisation de `sigaction` vs `signal`
+-  L'allocation dynamique de mémoire
+-  Le debugging système (GDB, valgrind)
+
+---
+
+## Utilisation basique
 
 **Terminal 1 - Lancer le serveur :**
 ```bash
@@ -63,20 +77,6 @@ Hello World!
 ```
 Le server a recu le message !
 ```
-
----
-
-## 🔧 Commandes Make
-
-| Commande | Description |
-|----------|-------------|
-| `make` | Compile `server` et `client` |
-| `make clean` | Supprime les fichiers objets (`.o`) |
-| `make fclean` | Supprime tout (objets + exécutables) |
-| `make re` | Nettoie et recompile tout |
-| `make bonus` | Compile avec les bonus (identique à `make`) |
-| `make test` | **Lance le testeur automatique**  |
-| `make norminette` | Vérifie que le code respecte la norme 42 |
 
 ---
 
@@ -180,46 +180,20 @@ kill $(pgrep server)
 
 ---
 
-## Structure du projet
+## Documentation complète
 
-```
-minitalk/
-│
-├──  server.c
-├──  client.c
-├──  utils.c
-├──  includes/
-│   └──  minitalk.h
-└──  Makefile
-```
+### **[Accéder au Wiki](../../wiki)**
 
----
+Le Wiki contient toute la documentation détaillée du projet :
 
-## Pour aller plus loin
-
-### Consulter le Wiki
-
-Le **[Wiki complet](../../wiki)** contient :
-- Des explications détaillées sur les signaux UNIX
-- Des diagrammes de flux de communication
-- Une analyse ligne par ligne du code
-- Des exemples avancés
-- Des exercices pratiques
-- Des ressources pour approfondir
+| Section | Description |
+|---------|-------------|
+| [**Home**](../../wiki/Home) | Vue d'ensemble et navigation |
+| [**Installation & Utilisation**](../../wiki/Installation-&-Utilisation) | Guide complet pour compiler et utiliser |
+| [**Concepts Clés**](../../wiki/Concepts-Clés) | Signaux UNIX, PID, communication bit par bit |
+| [**Architecture**](../../wiki/Architecture) | Structure du projet et flux de communication |
+| [**Détails Techniques**](../../wiki/Détails-Techniques) | Analyse approfondie du code |
+| [**FAQ**](../../wiki/FAQ) | Réponses aux questions fréquentes |
+| [**Ressources**](../../wiki/Ressources) | Commandes, outils, exemples avancés |
 
 ---
-
-## Concepts appris
-
-Ce projet permet de maîtriser :
--  Les signaux UNIX (`SIGUSR1`, `SIGUSR2`)
--  La communication inter-processus (IPC)
--  La manipulation des bits en C
--  Les variables `volatile` et `sig_atomic_t`
--  L'utilisation de `sigaction` vs `signal`
--  L'allocation dynamique de mémoire
--  Le debugging système (GDB, valgrind)
-
----
-
-_N'oubliez pas de consulter le [Wiki](../../wiki) pour toute question !_
