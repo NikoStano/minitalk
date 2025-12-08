@@ -1,4 +1,4 @@
-# 📡 Minitalk [![nistanoj's 42 minitalk Score](https://badge.nimon.fr/api/v2/cmgjygisn1482501pa9h6l9sg4/project/4399901)](https://github.com/Nimon77/badge42)
+# Minitalk [![nistanoj's 42 minitalk Score](https://badge.nimon.fr/api/v2/cmgjygisn1482501pa9h6l9sg4/project/4399901)](https://github.com/Nimon77/badge42)
 
 ![42 Project](https://img.shields.io/badge/42-Project-blue?style=for-the-badge)
 ![Language](https://img.shields.io/badge/Language-C-orange?style=for-the-badge)
@@ -121,23 +121,6 @@ Bit 0 (1) → SIGUSR1
 ### Protocole ACK (Accusé de réception)
 
 Le serveur envoie un **ACK** après chaque bit reçu pour synchroniser la communication et éviter les pertes de données.
-
----
-
-## Fonctionnalités
-
-### ✅ Mandatory
-
-- Serveur affichant son PID au lancement
-- Client prenant 2 arguments : `PID` et `message`
-- Transmission rapide et fiable
-- Support de plusieurs clients
-- Utilisation exclusive de `SIGUSR1` et `SIGUSR2`
-
-### ✅ Bonus
-
-- **Accusé de réception** : Le serveur confirme chaque bit reçu
-- **Support Unicode** : Tous les caractères UTF-8, y compris les emoji
 
 ---
 
